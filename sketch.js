@@ -122,7 +122,7 @@ function setup() {
 }
 
 function draw() {
-  background(111);
+  background(44, 45, 64);
   const celdasDisponibles = celdas.filter((celda) => {
     return celda.colapsada == false;
   });
@@ -143,7 +143,7 @@ function draw() {
     const opcionSeleccionada = random(celdaSeleccionada.opciones);
     celdaSeleccionada.opciones = [opcionSeleccionada];
 
-    // print(celdaSeleccionada);
+    //print(celdaSeleccionada);
 
     for (let x = 0; x < RETICULA; x++) {
       for (let y = 0; y < RETICULA; y++) {
@@ -160,7 +160,7 @@ function draw() {
             ancho,
             alto
           );
-          // Cambiar entropía UP
+          // Cambiar entropía UP(arriba)
           if (y > 0) {
             const indiceUP = x + (y - 1) * RETICULA;
             const celdaUP = celdas[indiceUP];
@@ -172,7 +172,7 @@ function draw() {
               );
             }
           }
-          // Cambiar entropía RIGHT
+          // Cambiar entropía RIGHT(derecha)
           if (x < RETICULA - 1) {
             const indiceRIGHT = x + 1 + y * RETICULA;
             const celdaRIGHT = celdas[indiceRIGHT];
@@ -184,7 +184,7 @@ function draw() {
               );
             }
           }
-          // Cambiar entropía DOWN
+          // Cambiar entropía DOWN(abajo)
           if (y < RETICULA - 1) {
             const indiceDOWN = x + (y + 1) * RETICULA;
             const celdaDOWN = celdas[indiceDOWN];
@@ -196,7 +196,7 @@ function draw() {
               );
             }
           }
-          // Cambiar entropía LEFT
+          // Cambiar entropía LEFT(izquierda)
           if (x > 0) {
             const indiceLEFT = x - 1 + y * RETICULA;
             const celdaLEFT = celdas[indiceLEFT];
@@ -209,8 +209,7 @@ function draw() {
             }
           }
         } else {
-          // strokeWeight(6);
-          // rect(x * ancho, y * alto, ancho, alto);
+
         }
       }
     }
@@ -224,7 +223,6 @@ function draw() {
     }
   }
 }
-
 function cambiarEntropia(_celda, _regla, _opuesta) {
   const nuevasOpciones = [];
   for (let i = 0; i < _celda.opciones.length; i++) {
