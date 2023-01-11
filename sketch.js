@@ -1,5 +1,5 @@
 const celdas = [];
-const RETICULA = 12;
+const RETICULA = 16;
 let ancho; //altura de celda
 let alto; //anchura de celda
 
@@ -9,7 +9,7 @@ const NA = 11; // número de azulejos
 let opcionesI = [];
 
 const reglas = [
-  // reglas de los borded de cada azulejo
+  // reglas de los bordes para cada azulejo
   {
     // tile 0
     UP: 0,
@@ -111,8 +111,6 @@ function setup() {
       opciones: opcionesI,
     };
   }
-  // celdas[8].colapsada = true;
-  // celdas[3].colapsada = true;
 
   // celdas[12].opciones = [5, 6, 8];
   // celdas[4].opciones = [4, 7, 12];
@@ -143,7 +141,7 @@ function draw() {
     const opcionSeleccionada = random(celdaSeleccionada.opciones);
     celdaSeleccionada.opciones = [opcionSeleccionada];
 
-    //print(celdaSeleccionada);
+    //print(celda);
 
     for (let x = 0; x < RETICULA; x++) {
       for (let y = 0; y < RETICULA; y++) {
@@ -160,7 +158,7 @@ function draw() {
             ancho,
             alto
           );
-          // Cambiar entropía UP(arriba)
+          //   UP Cambiar entropía
           if (y > 0) {
             const indiceUP = x + (y - 1) * RETICULA;
             const celdaUP = celdas[indiceUP];
@@ -172,7 +170,7 @@ function draw() {
               );
             }
           }
-          // Cambiar entropía RIGHT(derecha)
+          // RIGHT Cambiar entropía
           if (x < RETICULA - 1) {
             const indiceRIGHT = x + 1 + y * RETICULA;
             const celdaRIGHT = celdas[indiceRIGHT];
@@ -184,7 +182,7 @@ function draw() {
               );
             }
           }
-          // Cambiar entropía DOWN(abajo)
+          // DOWN Cambiar entropía 
           if (y < RETICULA - 1) {
             const indiceDOWN = x + (y + 1) * RETICULA;
             const celdaDOWN = celdas[indiceDOWN];
@@ -196,7 +194,7 @@ function draw() {
               );
             }
           }
-          // Cambiar entropía LEFT(izquierda)
+          //LEFT Cambiar entropía 
           if (x > 0) {
             const indiceLEFT = x - 1 + y * RETICULA;
             const celdaLEFT = celdas[indiceLEFT];
